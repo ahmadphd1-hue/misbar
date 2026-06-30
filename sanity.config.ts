@@ -1,15 +1,10 @@
 'use client'
 
-/**
- * This configuration is used for the Sanity Studio that’s mounted on the `\app\studio\[[...tool]]\page.tsx` route
- */
-
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
-// قمنا بتغيير هذا السطر:
-import {structureTool} from 'sanity/structure'
+// قمنا بتغيير الاستيراد هنا إلى deskTool
+import {deskTool} from 'sanity/desk'
 
-// Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from './sanity/env'
 import {schema} from './sanity/schemaTypes'
 import {structure} from './sanity/structure'
@@ -18,12 +13,10 @@ export default defineConfig({
   basePath: '/studio',
   projectId,
   dataset,
-  // Add and edit the content schema in the './sanity/schemaTypes' folder
   schema,
   plugins: [
-    structureTool({structure}),
-    // Vision is for querying with GROQ from inside the Studio
-    // https://www.sanity.io/docs/the-vision-plugin
+    // وهنا قمنا بتغييرها في البلاجنز
+    deskTool({structure}),
     visionTool({defaultApiVersion: apiVersion}),
   ],
 })
