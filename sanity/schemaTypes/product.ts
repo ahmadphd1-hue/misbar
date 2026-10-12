@@ -1,36 +1,71 @@
-export default {
+import { defineField, defineType } from 'sanity'
+
+export default defineType({
   name: 'product',
+  title: 'منتج',
   type: 'document',
-  title: 'المنتجات',
-  fields: [// أضف هذا الجزء داخل مصفوفة الـ fields
-{
-  name: 'category',
-  title: 'التصنيف',
-  type: 'string',
-  options: {
-    list: [
-      { title: 'كاميرات', value: 'cameras' },
-      { title: 'IP', value: 'ip' },
-      { title: 'ملحقات', value: 'accessories' },
-      { title: 'أسلاك', value: 'cables' },
-    ],
-  },
-},
-    { name: 'name', type: 'string', title: 'الاسم (Name)' },
-    { 
-      name: 'slug', 
-      type: 'slug', 
-      title: 'رابط المنتج (Slug)', 
-      options: { source: 'name', maxLength: 96 } 
-    },
-    { name: 'price', type: 'number', title: 'السعر (Price)' },
-    { name: 'image', type: 'image', title: 'صورة المنتج (Image)' },
-    { name: 'description', type: 'text', title: 'الوصف (Description)' },
-    { 
-      name: 'language', 
-      type: 'string', 
-      title: 'اللغة (Language)', 
-      options: { list: ['ar', 'en'], layout: 'radio' } 
-    }
-  ]
-}
+  fields: [
+    defineField({
+      name: 'category',
+      title: 'التصنيف',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'كاميرات', value: 'cameras' },
+          { title: 'IP', value: 'ip' },
+          { title: 'ملحقات', value: 'accessories' },
+        ],
+      },
+    }),
+    defineField({
+      name: 'name',
+      title: 'اسم المنتج',
+      type: 'string',
+      validation: (r) => r.required(),
+    }),
+    defineField({
+      name: 'slug',
+      title: 'الرابط (Slug)',
+      type: 'slug',
+      options: { source: 'name', maxLength: 96 },
+    }),
+    defineField({
+      name: 'image',
+      title: 'صورة المنتج',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: 'price',
+      title: 'السعر الحالي',
+      type: 'number',
+      validation: (r) => r.required().min(0),
+    }),
+    defineField({
+      name: 'oldPrice',
+      title: 'السعر القديم (اختياري)',
+      type: 'number',
+    }),
+    defineField({
+      name: 'badge',
+      title: 'شارة (مثل: هدايا بقيمة)',
+      type: 'string',
+    }),
+    defineField({
+      name: 'description',
+      title: 'الوصف',
+      type: 'text',
+    }),
+    defineField({
+      name: 'language',
+      title: 'اللغة',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'العربية', value: 'ar' },
+          { title: 'English', value: 'en' },
+        ],
+      },
+    }),
+  ],
+})
