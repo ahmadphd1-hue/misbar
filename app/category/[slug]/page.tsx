@@ -1,4 +1,4 @@
-Import { client } from "@/sanity/client";
+import { client } from "@/sanity/client";
 
 import ProductCard from "@/components/ProductCard";
 
@@ -28,13 +28,25 @@ const products = await client.fetch(
 
 
 
+const titles: Record<string, string> = {
+
+cameras: "كاميرات",
+
+ip: "كاميرات IP",
+
+accessories: "ملحقات",
+
+};
+
+
+
 return (
 
 <main className="max-w-7xl mx-auto px-3 md:px-4 py-8 min-h-screen">
 
 <h1 className="text-3xl font-bold mb-8 border-b border-slate-300 pb-4 text-slate-900">
 
-{slug === "ip" ? "كاميرات IP" : slug === "cameras" ? "كاميرات" : slug === "accessories" ? "ملحقات" : slug}
+{titles[slug] ?? slug}
 
 </h1>
 
@@ -66,4 +78,4 @@ return (
 
 );
 
-}
+} 
