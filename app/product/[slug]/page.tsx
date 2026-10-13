@@ -22,7 +22,7 @@ export default async function ProductPage({
 
   return (
     <main className="max-w-3xl mx-auto pb-28">
-      <div className="relative aspect-square w-full bg-white">
+      <div className="relative w-full h-64 sm: h-80 bg-white">
         {product.badge && (
           <span className="absolute top-3 right-3 z-10 bg-red-500 text-white text-sm font-bold px-4 py-1 rounded-md">
             {product.badge}
