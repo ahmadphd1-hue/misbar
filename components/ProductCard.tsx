@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { urlFor } from "@/sanity/imageUrl";
 import AddToCartButton from "@/components/AddToCartButton";
+import { Price } from "@/components/SarSymbol";
 
 export default function ProductCard({ product }: { product: any }) {
   const hasDiscount = product.oldPrice && product.oldPrice > product.price;
@@ -31,14 +32,15 @@ export default function ProductCard({ product }: { product: any }) {
 
           <div className="mt-3 flex items-center justify-center gap-3">
             <span className="text-xl font-black text-slate-900">
-              {product.price} ر.س
+              <Price value={Number(product.price) || 0} />
             </span>
             {hasDiscount && (
               <span className="text-sm text-slate-400 line-through">
-                {product.oldPrice}
+                <Price value={Number(product.oldPrice) || 0} />
               </span>
             )}
           </div>
+          <p className="text-xs text-slate-500 mt-1">شامل الضريبة</p>
         </div>
       </Link>
 

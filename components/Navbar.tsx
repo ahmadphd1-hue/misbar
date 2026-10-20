@@ -14,6 +14,11 @@ export default function Navbar() {
   const { cart } = useCart();
   const [open, setOpen] = useState(false);
 
+  const totalQty = cart.reduce(
+    (sum: number, item: any) => sum + (Number(item.quantity) || 0),
+    0
+  );
+
   return (
     <>
       <header className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
@@ -46,9 +51,9 @@ export default function Navbar() {
               <path d="M6 7h12l-1 13H7L6 7z" />
               <path d="M9 7a3 3 0 0 1 6 0" />
             </svg>
-            {cart.length > 0 && (
+            {totalQty > 0 && (
               <span className="absolute top-0 left-0 min-w-5 h-5 px-1 flex items-center justify-center rounded-full bg-red-500 text-white text-xs font-bold">
-                {cart.length}
+                {totalQty}
               </span>
             )}
           </Link>

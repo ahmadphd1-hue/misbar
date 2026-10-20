@@ -1,18 +1,25 @@
 "use client";
+import { useState } from "react";
 import { useCart } from "@/context/CartContext";
 
 export default function AddToCartButton({ product }: { product: any }) {
   const { addToCart } = useCart();
+  const [added, setAdded] = useState(false);
+
+  const handleClick = () => {
+    addToCart(product);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1800);
+  };
 
   return (
-    <button 
-      onClick={() => {
-        console.log("تم الضغط! المنتج هو:", product); // للتجربة
-        addToCart(product);
-      }}
-      className="w-full bg-blue-600 py-2 rounded-lg font-bold hover:bg-blue-700 transition"
+    <button
+      onClick={handleClick}
+      className={`w-full ${
+        added ? "bg-green-600" : "bg-blue-600"
+      } py-3 rounded-full text-white font-bold transition`}
     >
-      إضافة للسلة
+      {added ? "تمت الإضافة للسلة 😍" : "إضافة للسلة"}
     </button>
   );
 }

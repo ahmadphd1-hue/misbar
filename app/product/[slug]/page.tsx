@@ -1,6 +1,7 @@
 import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/imageUrl";
 import AddToCartButton from "@/components/AddToCartButton";
+import { Price } from "@/components/SarSymbol";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -44,14 +45,15 @@ export default async function ProductPage({
 
         <div className="mt-3 flex items-center gap-3">
           <span className="text-3xl font-black text-slate-900">
-            {product.price} ر.س
+            <Price value={Number(product.price) || 0} />
           </span>
           {hasDiscount && (
             <span className="text-lg text-slate-400 line-through">
-              {product.oldPrice}
+              <Price value={Number(product.oldPrice) || 0} />
             </span>
           )}
         </div>
+        <p className="text-xs text-slate-500 mt-1">شامل الضريبة</p>
 
         {product.description && (
           <div className="mt-6 bg-white border border-slate-200 rounded-xl p-4">

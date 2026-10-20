@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${cairo.className} bg-slate-50 text-slate-900 antialiased min-h-screen flex flex-col`}
       >
         <CartProvider>
+          <AnnouncementBar />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
