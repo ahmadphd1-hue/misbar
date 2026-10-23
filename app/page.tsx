@@ -3,7 +3,7 @@ import ProductCard from "@/components/ProductCard";
 
 export default async function Home() {
   const products = await client.fetch(
-    '*[_type == "product"] | order(_createdAt desc)'
+    '*[_type == "product" && isHidden != true] | order(_createdAt desc)'
   );
 
   return (

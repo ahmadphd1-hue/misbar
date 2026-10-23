@@ -67,5 +67,12 @@ export default defineType({
         ],
       },
     }),
+    defineField({
+      name: 'isHidden',
+      title: 'إخفاء المنتج من المتجر',
+      description: 'عند التفعيل، لن يظهر المنتج في الصفحة الرئيسية أو التصنيفات',
+      type: 'boolean',
+      initialValue: false,
+    }),
   ],
 })

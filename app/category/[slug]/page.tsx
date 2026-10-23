@@ -20,7 +20,7 @@ const { slug } = await params;
 
 const products = await client.fetch(
 
-`*[_type == "product" && category == $slug] | order(_createdAt desc)`,
+`*[_type == "product" && category == $slug && isHidden != true] | order(_createdAt desc)`,
 
 { slug }
 
