@@ -8,6 +8,7 @@ const links = [
   { href: "/category/cameras", label: "كاميرات" },
   { href: "/category/ip", label: "كاميرات IP" },
   { href: "/category/accessories", label: "ملحقات" },
+  { href: "/services", label: "خدماتنا" }, // <--- هذا السطر الجديد
 ];
 
 export default function Navbar() {

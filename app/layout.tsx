@@ -14,7 +14,23 @@ const cairo = Cairo({
 
 export const metadata: Metadata = {
   title: "مسبار | كاميرات المراقبة والأنظمة الأمنية",
-  description: "تصفح أحدث كاميرات المراقبة والأنظمة الأمنية",
+  description:
+    "متجر مسبار لأنظمة المراقبة وكاميرات الأمن في عرعر. نوفر أفضل الكاميرات والأنظمة بأعلى جودة.",
+  icons: {
+    icon: "/misbar-logo.png",
+  },
+  openGraph: {
+    title: "مسبار | كاميرات المراقبة والأنظمة الأمنية",
+    description: "متجر مسبار لأنظمة المراقبة وكاميرات الأمن في عرعر.",
+    images: [
+      {
+        url: "/misbar-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "مسبار",
+      },
+    ],
+  },
 };
 
 export const viewport: Viewport = {

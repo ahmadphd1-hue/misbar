@@ -8,6 +8,7 @@ const storeLinks = [
 ];
 
 const infoLinks = [
+  { href: "/services", label: "خدماتنا" }, // <--- السطر الجديد
   { href: "/info", label: "من نحن" },
   { href: "/info/returns", label: "سياسة الاستبدال والاسترجاع" },
   { href: "/info/location", label: "موقعنا والتوصيل" },
