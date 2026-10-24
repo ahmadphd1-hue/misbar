@@ -12,9 +12,6 @@ export default function CartPage() {
   const { cart, removeFromCart, increaseQty, decreaseQty, clearCart } =
     useCart();
   const [deliveryType, setDeliveryType] = useState("pickup");
-  const [customerName, setCustomerName] = useState("");
-  const [customerPhone, setCustomerPhone] = useState("");
-  const [customerCity, setCustomerCity] = useState("عرعر");
 
   // الحسابات
   const subtotal = cart.reduce(
@@ -199,76 +196,14 @@ export default function CartPage() {
             </div>
           </div>
 
-          {/* بيانات العميل */}
-          <div className="border-t border-slate-200 pt-4 mt-4 space-y-3">
-            <h3 className="font-bold text-slate-900">بيانات العميل</h3>
-
-            <div>
-              <label htmlFor="customer-name" className="block text-sm font-medium text-slate-700 mb-1">
-                الاسم <span className="text-red-600">*</span>
-              </label>
-              <input
-                id="customer-name"
-                type="text"
-                required
-                autoComplete="name"
-                value={customerName}
-                onChange={(e) => setCustomerName(e.target.value)}
-                placeholder="الاسم الكامل"
-                className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="customer-phone" className="block text-sm font-medium text-slate-700 mb-1">
-                رقم الجوال <span className="text-red-600">*</span>
-              </label>
-              <input
-                id="customer-phone"
-                type="tel"
-                required
-                inputMode="tel"
-                autoComplete="tel"
-                value={customerPhone}
-                onChange={(e) => setCustomerPhone(e.target.value)}
-                placeholder="05XXXXXXXX"
-                className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="customer-city" className="block text-sm font-medium text-slate-700 mb-1">
-                المدينة <span className="text-red-600">*</span>
-              </label>
-              <input
-                id="customer-city"
-                type="text"
-                required
-                autoComplete="address-level2"
-                value={customerCity}
-                onChange={(e) => setCustomerCity(e.target.value)}
-                placeholder="المدينة"
-                className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
-              />
-            </div>
-          </div>
-
           {/* زر الواتساب */}
           <button
             onClick={() => {
-              const name = customerName.trim();
-              const phone = customerPhone.trim();
-              const city = customerCity.trim();
-
-              if (!name || !phone || !city) {
-                alert("يرجى إدخال الاسم ورقم الجوال والمدينة قبل إتمام الطلب.");
-                return;
-              }
-
               const itemsList = cart
                 .map((item: any) => {
                   const qty = Number(item.quantity) || 1;
-                  return `- ${item.name} × ${qty}`;
+                  const lineTotal = (Number(item.price) || 0) * qty;
+                  return `- ${item.name} × ${qty}: ${lineTotal} ر.س`;
                 })
                 .join("\n");
               const deliveryText =
@@ -277,7 +212,7 @@ export default function CartPage() {
                     ? "توصيل (مجاني)"
                     : `توصيل (${SHIPPING_FEE} ر.س)`
                   : "استلام من الفرع (مجاناً)";
-              const message = `أهلاً، أرغب بطلب المنتجات التالية:\n${itemsList}\n\nبيانات العميل:\nالاسم: ${name}\nالجوال: ${phone}\nالمدينة: ${city}\nنوع التوصيل: ${deliveryText}\nالإجمالي: ${total.toFixed(2)} ر.س`;
+              const message = `أهلاً، أرغب بطلب المنتجات التالية:\n\n${itemsList}\n\nنوع التوصيل: ${deliveryText}\nالإجمالي شامل الضريبة: ${total.toFixed(2)} ر.س\n\nبانتظار تأكيد الطلب.`;
               const whatsappUrl = `https://wa.me/966532999563?text=${encodeURIComponent(message)}`;
               window.open(whatsappUrl, "_blank");
             }}
