@@ -169,6 +169,17 @@ export default function CartPage() {
             )}
           </div>
 
+          {/* معلومات التوصيل */}
+          <div className="mb-4 rounded-lg border border-blue-100 bg-blue-50 p-3">
+            <p className="mb-1 text-sm font-semibold text-blue-800">
+              🚚 معلومات التوصيل:
+            </p>
+            <ul className="list-disc space-y-1 pr-4 text-xs text-blue-800">
+              <li>داخل مدينة عرعر: 15 ريال (مجاني فوق 400 ريال).</li>
+              <li>خارج عرعر: يرجى التواصل عبر واتساب لتحديد تكلفة الشحن.</li>
+            </ul>
+          </div>
+
           <div className="border-t border-slate-200 pt-4 space-y-2">
             <div className="flex justify-between text-slate-600">
               <span>المجموع الفرعي:</span>
