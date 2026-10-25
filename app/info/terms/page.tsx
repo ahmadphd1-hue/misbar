@@ -25,7 +25,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-xl font-bold text-slate-900 mb-2">٣. التوصيل والشحن</h2>
           <ul className="list-disc list-inside space-y-2 mr-2">
-            <li><strong>داخل مدينة عرعر:</strong> يتم التوصيل حتى باب المنزل (15 ريال، ومجاني للطلبات فوق 400 ريال).</li>
+            <li>داخل مدينة عرعر: يتم التوصيل حتى باب المنزل بالسعر المعروض في الموقع، ويكون التوصيل مجانياً إذا كان الطلب مؤهلاً.</li>
             <li><strong>خارج مدينة عرعر:</strong> يتم الاتفاق على طريقة الشحن وتكلفته مع العميل عبر الواتساب قبل إتمام الطلب.</li>
             <li>نحن غير مسؤولين عن أي تأخير في التوصيل ناتج عن ظروف خارجة عن إرادتنا.</li>
           </ul>
@@ -38,7 +38,7 @@ export default function TermsPage() {
 
         <div>
           <h2 className="text-xl font-bold text-slate-900 mb-2">٥. الدفع</h2>
-          <p>حالياً، يتم الدفع عبر الاتفاق المباشر معنا (الدفع عند الاستلام أو التحويل البنكي). نحن لا نحتفظ بأي بيانات بطاقات ائتمانية على الموقع.</p>
+          <p>حالياً، يتم الدفع عبر الاتفاق المباشر معنا (الدفع عند الاستلام أو تحويل بنكي باسم المؤسسة). نحن غير مسؤولين عن أي مبالغ يتم تحويلها إلى طرف ثالث.</p>
         </div>
 
         <div>
@@ -68,7 +68,8 @@ export default function TermsPage() {
 
         <div>
           <h2 className="text-xl font-bold text-slate-900 mb-2">١٠. التواصل</h2>
-          <p>لأي استفسار، تواصل معنا عبر الواتساب: <strong>0532999563</strong></p>
+          <p>لأي استفسار، يمكنك التواصل معنا على رقم الجوال: <strong>0532999563</strong></p>
+          <p className="mt-2">موقعنا: طريق الملك فيصل، الروضة، عرعر 73312</p>
         </div>
 
         <p className="text-xs text-slate-500 mt-8 pt-4 border-t">آخر تحديث: {new Date().toLocaleDateString('ar-SA')}</p>
