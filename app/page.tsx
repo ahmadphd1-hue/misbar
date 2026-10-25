@@ -1,5 +1,5 @@
 import { client } from "@/sanity/client";
-import ProductCard from "@/components/ProductCard";
+import ProductSearch from "@/components/ProductSearch";
 
 export default async function Home() {
   const products = await client.fetch(
@@ -13,15 +13,11 @@ export default async function Home() {
           أهلاً بك في مسبار
         </h1>
         <p className="text-slate-500">
-          تصفح أحدث كاميرات المراقبة والأنظمة الأمنية
+          متجر متخصص في كاميرات المراقبة والأنظمة الأمنية في مدينة عرعر
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-        {products.map((product: any) => (
-          <ProductCard key={product._id} product={product} />
-        ))}
-      </div>
+      <ProductSearch products={products} />
     </main>
   );
 }
