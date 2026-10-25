@@ -84,7 +84,7 @@ export default function Footer() {
 
         <div className="border-t border-slate-800 mt-8 pt-6 text-center">
           <p className="text-xs text-slate-500">
-            &copy; {new Date().getFullYear()} متجر مسبار لأنظمة المراقبة. جميع الحقوق محفوظة.
+            &copy; {new Date().getFullYear()} مؤسسة مسبار التميز لتقنية المعلومات. جميع الحقوق محفوظة.
           </p>
         </div>
       </div>
