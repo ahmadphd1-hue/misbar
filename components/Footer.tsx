@@ -12,6 +12,8 @@ const infoLinks = [
   { href: "/info", label: "من نحن" },
   { href: "/info/returns", label: "سياسة الاستبدال والاسترجاع" },
   { href: "/info/location", label: "موقعنا والتوصيل" },
+  { href: "/info/privacy", label: "سياسة الخصوصية" },
+  { href: "/info/terms", label: "شروط الاستخدام" },
 ];
 
 export default function Footer() {
