@@ -1,23 +1,31 @@
 import { client } from "@/sanity/client";
-import ProductSearch from "@/components/ProductSearch";
+import Hero from "@/components/Hero";
+import TrustStrip from "@/components/TrustStrip";
+import CategoryRow from "@/components/CategoryRow";
+import ProductTabs from "@/components/ProductTabs";
+import DualBanners from "@/components/DualBanners";
+import Link from "next/link";
 
 export default async function Home() {
   const products = await client.fetch(
-    '*[_type == "product" && isHidden != true] | order(_createdAt desc)'
+    '*[_type == "product" && isHidden != true] | order(_createdAt desc){_id, name, price, brand, spec, category, slug, image}'
   );
 
   return (
-    <main className="max-w-7xl mx-auto px-3 md:px-4 py-6 min-h-screen">
-      <div className="mb-6 text-center md:text-right">
-        <h1 className="text-2xl md:text-4xl font-black text-slate-900 mb-2">
-          أهلاً بك في مسبار
-        </h1>
-        <p className="text-slate-500">
-          متجر متخصص في كاميرات المراقبة والأنظمة الأمنية في مدينة عرعر
-        </p>
-      </div>
-
-      <ProductSearch products={products} />
+    <main>
+      <Hero />
+      <TrustStrip />
+      <CategoryRow />
+      <section id="shop" className="max-w-7xl mx-auto px-4 mt-16">
+        <div className="flex items-end justify-between gap-4">
+          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">وصل حديثاً</h2>
+          <Link href="/category/accessories" className="text-accent text-sm font-bold whitespace-nowrap">
+            عرض كل المنتجات ←
+          </Link>
+        </div>
+        <ProductTabs products={products} />
+      </section>
+      <DualBanners />
     </main>
   );
 }

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>مسبار | كاميرات المراقبة والأنظمة الأمنية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{cairo:['Cairo','Tahoma','sans-serif']},colors:{ink:'#111113',sub:'#6E6E73',fog:'#F5F5F7',line:'#E8E8ED',accent:'#0071E3'}}}}</script>
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{background:#fff;color:#111113;font-family:Cairo,Tahoma,sans-serif;letter-spacing:-.01em}
+.scroll-x{overflow-x:auto;scrollbar-width:none}.scroll-x::-webkit-scrollbar{display:none}
+.pc{transition:box-shadow .25s,transform .25s}.pc:hover{box-shadow:0 12px 32px rgba(0,0,0,.08);transform:translateY(-3px)}
+.pc:hover .pimg svg{transform:scale(1.06)}.pimg svg{transition:transform .35s}
+@keyframes blink{50%{opacity:.2}}.blink{animation:blink 1.6s infinite}
+</style>
+</head>
+<body class="font-cairo antialiased">
+
+<!-- Utility bar -->
+<div class="bg-ink text-white text-[12px] sm:text-[13px]">
+  <div class="max-w-7xl mx-auto px-4 h-9 flex items-center justify-between">
+    <span>توصيل مجاني للطلبات فوق 400 ريال</span>
+    <a href="https://wa.me/966532999563" class="hidden sm:inline hover:underline">دعم واتساب: 966532999563+</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-white/85 backdrop-blur-xl border-b border-line">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center gap-4 lg:gap-8">
+    <a href="#" class="flex items-center gap-2 font-extrabold text-[22px] tracking-tight shrink-0">
+      <svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="11" fill="none" stroke="#111113" stroke-width="2.4"/><circle cx="13" cy="13" r="4.5" fill="#0071E3"/></svg>مسبار
+    </a>
+    <div class="hidden md:flex flex-1 max-w-xl mx-auto">
+      <label class="w-full flex items-center gap-2 h-11 px-4 rounded-full bg-fog focus-within:ring-2 ring-accent/40 transition">
+        <svg width="18" height="18" fill="none" stroke="#6E6E73" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input class="bg-transparent outline-none w-full text-sm" placeholder="ابحث عن كاميرا، جهاز تسجيل، ملحق...">
+      </label>
+    </div>
+    <div class="flex items-center gap-1 ms-auto md:ms-0">
+      <button class="md:hidden w-10 h-10 grid place-items-center" aria-label="بحث"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="w-10 h-10 grid place-items-center" aria-label="حسابي"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"/></svg></button>
+      <button class="relative w-10 h-10 grid place-items-center" aria-label="السلة">
+        <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span id="cnt" class="absolute top-0.5 end-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-accent text-white text-[10px] font-bold grid place-items-center hidden">0</span>
+      </button>
+    </div>
+  </div>
+  <nav class="border-t border-line/60">
+    <div class="max-w-7xl mx-auto px-4 scroll-x flex gap-7 h-11 items-center text-[13.5px] font-semibold text-sub whitespace-nowrap">
+      <a href="#" class="text-ink">الرئيسية</a><a href="#shop" class="hover:text-ink">كاميرات</a><a href="#shop" class="hover:text-ink">كاميرات IP</a><a href="#shop" class="hover:text-ink">أجهزة التسجيل</a><a href="#shop" class="hover:text-ink">التخزين</a><a href="#shop" class="hover:text-ink">الشبكات</a><a href="#shop" class="hover:text-ink">ملحقات</a><a href="#help" class="hover:text-ink">خدماتنا</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="max-w-7xl mx-auto px-4 pt-5">
+  <div class="rounded-[28px] bg-fog overflow-hidden grid md:grid-cols-2 items-center">
+    <div class="p-8 md:p-14 order-2 md:order-1">
+      <p class="text-accent font-bold text-sm">كاميرات المراقبة والأنظمة الأمنية</p>
+      <h1 class="mt-3 text-[34px] md:text-[56px] font-extrabold leading-[1.15] tracking-tight">أمان منزلك وشركتك.<br>بوضوح لا يُضاهى.</h1>
+      <p class="mt-4 text-sub text-base md:text-lg leading-8 max-w-md">كاميرات هيكفيجن وداهوا وإيزفيز بدقة تصل إلى 8 ميجابكسل، مع أسعار شاملة الضريبة.</p>
+      <div class="mt-7 flex flex-wrap items-center gap-3">
+        <a href="#shop" class="h-12 px-7 rounded-full bg-ink text-white font-bold grid place-items-center hover:bg-black/80 transition">تسوق الآن</a>
+        <a href="https://wa.me/966532999563" class="h-12 px-3 text-accent font-bold grid place-items-center hover:underline">اسأل خبير ←</a>
+      </div>
+    </div>
+    <div class="relative order-1 md:order-2 h-64 md:h-[460px] grid place-items-center" style="background:radial-gradient(circle at 50% 55%,#fff 0,transparent 65%)">
+      <svg viewBox="0 0 400 300" class="w-[78%] max-w-md drop-shadow-[0_30px_40px_rgba(0,0,0,.18)]">
+        <defs><linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#D9D9DE"/></linearGradient><radialGradient id="l" cx=".4" cy=".35"><stop offset="0" stop-color="#3a6fb0"/><stop offset=".45" stop-color="#101a2c"/><stop offset="1" stop-color="#05070c"/></radialGradient></defs>
+        <rect x="150" y="205" width="40" height="55" rx="8" fill="#C9C9CF"/><rect x="120" y="250" width="100" height="14" rx="7" fill="#B8B8BF"/>
+        <path d="M70 110c0-24 20-42 46-42h196c22 0 40 18 40 40v40c0 22-18 40-40 40H116c-26 0-46-18-46-42Z" fill="url(#b)"/>
+        <path d="M60 78h260c10 0 18 8 18 18v6H60Z" fill="#fff" opacity=".9"/>
+        <circle cx="130" cy="130" r="52" fill="#E4E4E9"/><circle cx="130" cy="130" r="42" fill="url(#l)"/><circle cx="130" cy="130" r="18" fill="#05070c"/><circle cx="116" cy="116" r="7" fill="#fff" opacity=".55"/>
+        <circle cx="270" cy="130" r="6" fill="#0071E3"/>
+      </svg>
+      <span class="absolute top-5 start-5 flex items-center gap-2 text-[12px] font-bold bg-white rounded-full px-3 py-1.5 shadow-sm"><span class="w-2 h-2 rounded-full bg-red-500 blink"></span>مباشر · 4K</span>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<section class="max-w-7xl mx-auto px-4 mt-8">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-y-5 py-6 border-y border-line text-sm">
+    <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-fog grid place-items-center">🚚</span><div><b class="block">توصيل مجاني</b><span class="text-sub text-xs">فوق 400 ريال</span></div></div>
+    <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-fog grid place-items-center">🧾</span><div><b class="block">شامل الضريبة</b><span class="text-sub text-xs">أسعار نهائية</span></div></div>
+    <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-fog grid place-items-center">💬</span><div><b class="block">دعم واتساب</b><span class="text-sub text-xs">نرد عليك مباشرة</span></div></div>
+    <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-fog grid place-items-center">📍</span><div><b class="block">متجر في عرعر</b><span class="text-sub text-xs">خدمة محلية</span></div></div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="max-w-7xl mx-auto px-4 mt-14">
+  <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">تسوق حسب الفئة</h2>
+  <div id="catrow" class="mt-6 scroll-x flex md:grid md:grid-cols-6 gap-3 -mx-4 px-4"></div>
+</section>
+
+<!-- Products -->
+<section id="shop" class="max-w-7xl mx-auto px-4 mt-16">
+  <div class="flex items-end justify-between gap-4">
+    <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">وصل حديثاً</h2>
+    <a href="#" class="text-accent text-sm font-bold whitespace-nowrap">عرض كل المنتجات ←</a>
+  </div>
+  <div id="tabs" class="mt-5 scroll-x flex gap-2"></div>
+  <div id="grid" class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5"></div>
+</section>
+
+<!-- Dual banners -->
+<section id="help" class="max-w-7xl mx-auto px-4 mt-16 grid md:grid-cols-2 gap-4">
+  <div class="rounded-[28px] bg-ink text-white p-8 md:p-10">
+    <p class="text-white/60 text-sm font-semibold">استشارة مجانية</p>
+    <h3 class="mt-2 text-2xl md:text-3xl font-extrabold leading-snug">لا تعرف أي نظام يناسبك؟</h3>
+    <p class="mt-3 text-white/70 leading-7 text-sm md:text-base">أخبرنا بمساحة المكان وعدد الكاميرات، ونرشح لك الأنسب.</p>
+    <a href="https://wa.me/966532999563" class="mt-6 inline-grid place-items-center h-11 px-6 rounded-full bg-white text-ink font-bold text-sm">ابدأ المحادثة</a>
+  </div>
+  <div class="rounded-[28px] bg-fog p-8 md:p-10">
+    <p class="text-sub text-sm font-semibold">خدماتنا</p>
+    <h3 class="mt-2 text-2xl md:text-3xl font-extrabold leading-snug">من الاختيار إلى التشغيل</h3>
+    <p class="mt-3 text-sub leading-7 text-sm md:text-base">تعرّف على خدمات المتجر ومواقع التوصيل وسياسة الاستبدال والاسترجاع.</p>
+    <a href="#" class="mt-6 inline-grid place-items-center h-11 px-6 rounded-full bg-ink text-white font-bold text-sm">اكتشف الخدمات</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="mt-20 bg-fog text-[13px]">
+  <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div class="col-span-2 md:col-span-1"><div class="font-extrabold text-xl">مسبار</div><p class="mt-2 text-sub leading-6">كاميرات المراقبة والأنظمة الأمنية في عرعر.</p></div>
+    <div><b>المتجر</b><ul class="mt-3 space-y-2 text-sub"><li>الرئيسية</li><li>كاميرات</li><li>كاميرات IP</li><li>ملحقات</li></ul></div>
+    <div><b>معلومات</b><ul class="mt-3 space-y-2 text-sub"><li>من نحن</li><li>خدماتنا</li><li>موقعنا والتوصيل</li></ul></div>
+    <div><b>السياسات</b><ul class="mt-3 space-y-2 text-sub"><li>الاستبدال والاسترجاع</li><li>الخصوصية</li><li>شروط الاستخدام</li></ul></div>
+  </div>
+  <div class="border-t border-line"><div class="max-w-7xl mx-auto px-4 py-5 text-sub text-xs">© 2026 مؤسسة مسبار التميز لتقنية المعلومات. جميع الحقوق محفوظة.</div></div>
+</footer>
+
+<script>
+function ic(k,s){const c='#111113';const p={
+cam:`<rect x="3" y="9" width="30" height="16" rx="6" fill="#fff" stroke="${c}" stroke-width="1.6"/><circle cx="13" cy="17" r="5" fill="${c}"/><circle cx="13" cy="17" r="2" fill="#0071E3"/><path d="M33 14l8-3v13l-8-3" fill="none" stroke="${c}" stroke-width="1.6"/>`,
+dome:`<path d="M6 30a18 18 0 0 1 36 0Z" fill="#fff" stroke="${c}" stroke-width="1.6"/><circle cx="24" cy="26" r="5" fill="${c}"/><circle cx="24" cy="26" r="2" fill="#0071E3"/><rect x="4" y="30" width="40" height="4" rx="2" fill="${c}"/>`,
+dvr:`<rect x="4" y="14" width="40" height="18" rx="4" fill="#fff" stroke="${c}" stroke-width="1.6"/><rect x="10" y="21" width="16" height="4" rx="2" fill="${c}"/><circle cx="36" cy="23" r="2.5" fill="#0071E3"/>`,
+hdd:`<rect x="8" y="6" width="32" height="36" rx="5" fill="#fff" stroke="${c}" stroke-width="1.6"/><circle cx="24" cy="22" r="9" fill="none" stroke="${c}" stroke-width="1.6"/><circle cx="24" cy="22" r="2.5" fill="#0071E3"/><rect x="14" y="36" width="12" height="2.5" rx="1.2" fill="${c}"/>`,
+net:`<rect x="4" y="18" width="40" height="14" rx="3" fill="#fff" stroke="${c}" stroke-width="1.6"/><g fill="${c}"><rect x="9" y="22" width="4" height="6" rx="1"/><rect x="16" y="22" width="4" height="6" rx="1"/><rect x="23" y="22" width="4" height="6" rx="1"/></g><circle cx="37" cy="25" r="2" fill="#0071E3"/>`,
+int:`<rect x="12" y="4" width="24" height="40" rx="5" fill="#fff" stroke="${c}" stroke-width="1.6"/><circle cx="24" cy="14" r="3.5" fill="${c}"/><rect x="17" y="24" width="14" height="10" rx="2" fill="#0071E3" opacity=".9"/>`};
+return `<svg width="${s}" height="${s}" viewBox="0 0 48 48">${p[k]}</svg>`}
+const cats=["الكل","كاميرات","التسجيل","التخزين","الشبكات"];
+const items=[
+["هيكفيجن","كاميرا IP خارجية 6 ميجابكسل","290","cam","كاميرات","6MP"],
+["هيكفيجن","كاميرا خارجية ملونة 3K","170","cam","كاميرات","3K"],
+["هيكفيجن","كاميرا IP داخلية 2 ميجابكسل","220","dome","كاميرات","2MP"],
+["هيكفيجن","كاميرا خارجية 8 ميجابكسل","450","cam","كاميرات","8MP"],
+["هيكفيجن","جهاز تسجيل DVR · 8 قنوات","750","dvr","التسجيل","8CH"],
+["داهوا","جهاز تسجيل DVR · 8 قنوات","450","dvr","التسجيل","5MP"],
+["ويسترن ديجيتال","هاردسك داخلي 2 تيرابايت","450","hdd","التخزين","2TB"],
+["هيكفيجن","سويتش شبكة · 8 منافذ","295","net","الشبكات","PoE"],
+["إيزفيز","كاميرا ذكية H6C Pro بدقة 2K","110","dome","كاميرات","2K"],
+["هيكفيجن","كاميرا مراقبة خارجية 5 ميجابكسل","280","cam","كاميرات","5MP"],
+["توشيبا","هاردسك داخلي 2 تيرابايت أصلي","650","hdd","التخزين","2TB"],
+["هيكفيجن","سويتش شبكة · 4 منافذ","185","net","الشبكات","PoE"]];
+let n=0,cur="الكل";const cnt=document.getElementById('cnt');
+function render(){
+ document.getElementById('tabs').innerHTML=cats.map(c=>`<button data-c="${c}" class="tab shrink-0 h-9 px-5 rounded-full text-sm font-bold transition ${c===cur?'bg-ink text-white':'bg-fog text-ink hover:bg-line'}">${c}</button>`).join('');
+ document.getElementById('grid').innerHTML=items.filter(i=>cur==="الكل"||i[4]===cur).map(([b,t,p,k,,s])=>`
+ <article class="pc rounded-2xl bg-white border border-line overflow-hidden flex flex-col">
+  <div class="pimg relative bg-fog aspect-[4/3] grid place-items-center">${ic(k,92)}<span class="absolute top-3 start-3 text-[11px] font-bold bg-white rounded-full px-2.5 py-1">${s}</span></div>
+  <div class="p-4 flex flex-col grow">
+   <span class="text-[11px] font-bold text-sub">${b}</span>
+   <h3 class="mt-1 text-[14px] font-bold leading-6 line-clamp-2">${t}</h3>
+   <div class="mt-auto pt-4 flex items-end justify-between gap-2">
+    <div><div class="text-xl font-extrabold leading-none">${p} <span class="text-xs font-semibold">ر.س</span></div><div class="text-[11px] text-sub mt-1">شامل الضريبة</div></div>
+    <button class="add w-10 h-10 rounded-full bg-ink text-white grid place-items-center hover:bg-accent transition shrink-0" aria-label="إضافة للسلة"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+   </div>
+  </div>
+ </article>`).join('');
+ document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{cur=b.dataset.c;render()});
+ document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{cnt.textContent=++n;cnt.classList.remove('hidden')});
+}
+document.getElementById('catrow').innerHTML=[["كاميرات خارجية","cam"],["كاميرات داخلية","dome"],["أجهزة التسجيل","dvr"],["التخزين","hdd"],["الشبكات","net"],["الانتركوم","int"]].map(([t,k])=>`<a href="#shop" class="pc shrink-0 w-36 md:w-auto rounded-2xl bg-fog p-5 text-center"><div class="h-16 grid place-items-center">${ic(k,44)}</div><div class="mt-3 text-sm font-bold">${t}</div></a>`).join('');
+render();
+</script>
+</body>
+</html>

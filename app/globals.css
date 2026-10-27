@@ -1,20 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --accent: #2563eb;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--accent);
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  scroll-behavior: smooth;
+}
+
+@theme {
+  --color-ink: #111113;
+  --color-sub: #6E6E73;
+  --color-fog: #F5F5F7;
+  --color-line: #E8E8ED;
+  --color-accent: #0071E3;
+  --font-cairo: "Cairo", Tahoma, sans-serif;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background: #fff;
+  color: #111113;
+  font-family: var(--font-cairo), Tahoma, sans-serif;
+  letter-spacing: -0.01em;
   margin: 0;
   padding: 0;
 }
@@ -22,6 +33,42 @@ body {
 a {
   text-decoration: none;
   transition: all 0.3s;
+}
+
+.scroll-x {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.scroll-x::-webkit-scrollbar {
+  display: none;
+}
+
+.pc {
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.pc:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.pc:hover .pimg svg {
+  transform: scale(1.06);
+}
+
+.pimg svg {
+  transition: transform 0.35s;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.blink {
+  animation: blink 1.6s infinite;
 }
 
 @keyframes animated-gradient {
@@ -45,9 +92,11 @@ a {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #f1f5f9;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;

@@ -3,12 +3,12 @@ import { Cairo } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import AnnouncementBar from "@/components/AnnouncementBar";
-import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
-  weight: ["400", "600", "700", "900"],
+  weight: ["400", "600", "700", "800"],
   display: "swap",
 });
 
@@ -23,7 +23,10 @@ export const metadata: Metadata = {
   title: "مسبار | كاميرات المراقبة والأنظمة الأمنية",
   description:
     "متجر مسبار لأنظمة المراقبة وكاميرات الأمن في عرعر. نوفر أفضل الكاميرات والأنظمة بأعلى جودة.",
-  // Favicon and Apple touch icon come from app/icon.png and app/apple-icon.png.
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "ar_SA",
@@ -62,11 +65,11 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body
-        className={`${cairo.className} bg-slate-50 text-slate-900 antialiased min-h-screen flex flex-col`}
+        className={`${cairo.className} font-cairo antialiased min-h-screen flex flex-col`}
       >
         <CartProvider>
           <AnnouncementBar />
-          <Navbar />
+          <Header />
           <main className="flex-1">{children}</main>
           <Footer />
         </CartProvider>
